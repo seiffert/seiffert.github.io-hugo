@@ -1,6 +1,11 @@
+GITHUB_PAGES_REPO=https://$(GH_TOKEN)@github.com/seiffert/seiffert.github.io.git
+
 default: deploy
 
-build:
+clone-ghpages-repo:
+	git clone $(GITHUB_PAGES_REPO) public
+
+build: clone-ghpages-repo
 	hugo -t heather-hugo
 
 serve:
@@ -8,11 +13,8 @@ serve:
 
 deploy: build
 	DATE="$(shell date)"
+	hugo -t heather-hugo
 	cd public; \
 		git add -A; \
 		git ci -m "rebuilding site $(DATE)"; \
-		git push origin master
-	git add public
-	git ci -m "Deployed at $(DATE)"
-	git push origin master
-
+		git push $(GITHUB_PAGES_REPO) master
