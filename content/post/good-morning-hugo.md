@@ -6,3 +6,4 @@ title = "Good Morning, Hugo"
 +++
 
 This is a test to learn Hugo.
+Which is automatically deployed via Travis.
