@@ -16,5 +16,5 @@ deploy: build
 	hugo -t heather-hugo
 	cd public; \
 		git add -A; \
-		git ci -m "rebuilding site $(DATE)"; \
+		git commit -m "rebuilding site $(DATE)"; \
 		git push $(GITHUB_PAGES_REPO) master
