@@ -15,6 +15,8 @@ deploy: build
 	DATE="$(shell date)"
 	hugo -t heather-hugo
 	cd public; \
+		git config user.name "Travis CI"; \
+		git config user.email "paul.seiffert@gmail.com"; \
 		git add -A; \
 		git commit -m "rebuilding site $(DATE)"; \
 		git push $(GITHUB_PAGES_REPO) master
