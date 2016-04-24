@@ -1,1 +1,5 @@
+language: go
+
+install: go get -v github.com/spf13/hugo
+before_script: export PATH=$PATH:$GOPATH/bin
 script: make
