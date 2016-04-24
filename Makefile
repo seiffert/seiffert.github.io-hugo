@@ -12,11 +12,10 @@ serve:
 	hugo server --buildDrafts -t heather-hugo
 
 deploy: build
-	DATE="$(shell date)"
 	hugo -t heather-hugo
 	cd public; \
 		git config user.name "Travis CI"; \
 		git config user.email "paul.seiffert@gmail.com"; \
 		git add -A; \
-		git commit -m "rebuilding site $(DATE)"; \
+		git commit -m "rebuilding site $(shell date)"; \
 		git push $(GITHUB_PAGES_REPO) master
